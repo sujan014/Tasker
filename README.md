@@ -13,6 +13,16 @@ pnpm dev
 # or
 bun dev
 ```
+Environment variables to be set:
+
+NEXTAUTH_URL=http://localhost:3000
+
+MONGODB_URI
+
+JWT_SECRET_KEY
+
+MONGODB_DB_MAIN=DailyTasker
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
