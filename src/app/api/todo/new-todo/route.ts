@@ -1,7 +1,7 @@
 import dbConnect from '@/app/connection/mongo.connection';
 import { TodoModel } from '@/app/models/User';
 import { createResponse } from '@/app/utils';
-import { Types } from 'mongoose';
+//import { Types } from 'mongoose';
 
 export async function POST(request: Request): Promise<Response> {
   const { userId, todo, item, description, done, unable } =

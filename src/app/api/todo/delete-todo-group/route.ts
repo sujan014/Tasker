@@ -18,7 +18,7 @@ export async function POST(request: Request): Promise<Response> {
       message: 'Delete todo found',
       isSuccess: true,
     });
-  } catch (error) {
+  } catch {
     return createResponse({
       data: null,
       code: 500,

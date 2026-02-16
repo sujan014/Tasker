@@ -12,10 +12,10 @@ export default function AccountTab() {
   const [showAccount, setShowAccount] = useState(false);
   const router = useRouter();
 
-  const handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-    router.push('/login');
-  };
+  // const handleLogin = (e: React.MouseEvent<HTMLButtonElement>) => {
+  //   e.preventDefault();
+  //   router.push('/login');
+  // };
 
   const handleLogout = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();

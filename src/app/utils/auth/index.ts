@@ -4,7 +4,7 @@ import { jwtVerify, SignJWT } from 'jose';
 
 export const signJWT = async (
   payload: PayloadSignJWT,
-  option: { exp: string }
+  option: { exp: string },
 ) => {
   try {
     const secret = new TextEncoder().encode(process.env.JWT_SECRET_KEY);
@@ -25,10 +25,10 @@ export const verifyJWT = async <T>(token: string) => {
     return (
       await jwtVerify(
         token,
-        new TextEncoder().encode(process.env.JWT_SECRET_KEY)
+        new TextEncoder().encode(process.env.JWT_SECRET_KEY),
       )
     ).payload as T;
-  } catch (error) {
+  } catch {
     return null;
   }
 };

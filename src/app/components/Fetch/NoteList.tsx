@@ -3,7 +3,7 @@ import { endpoints } from '@/app/services/endpoints';
 import httpClient from '@/app/utils/http-client';
 import { NoteInfo } from '@/app/utils/types';
 import { useEffect, useState } from 'react';
-import NoteItem from '../note/note-item';
+//import NoteItem from '../note/note-item';
 import NoteCard from '../note/note-item';
 
 type NoteListProp = {

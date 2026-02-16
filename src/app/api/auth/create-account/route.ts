@@ -33,7 +33,7 @@ export async function POST(request: Request): Promise<Response> {
       message: 'Account created successfully.',
       isSuccess: true,
     });
-  } catch (error) {
+  } catch {
     return createResponse({
       data: null,
       code: 500,

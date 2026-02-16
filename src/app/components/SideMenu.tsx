@@ -1,11 +1,11 @@
 'use client';
 
-import { Button } from '@/components/ui/button';
-import Link from 'next/link';
-import { usePathname, useRouter, useSearchParams } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
+//import { Button } from '@/components/ui/button';
+//import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+//import { useCallback, useEffect, useState } from 'react';
 import AccountTab from './Tabs/AccountTabs';
-import { delay, motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   BellRing,
   FolderKanban,
@@ -13,45 +13,8 @@ import {
   House,
   ListChecks,
   ListTodo,
+  LucideIcon,
 } from 'lucide-react';
-
-const sidebarItems = [
-  // { title: 'Profile', url: '/profile' },
-  // { title: 'Dashboard', url: '/dashboard' },
-  // { title: 'Network', url: '/network' },
-];
-
-// export default function SidebarMenu() {
-//   //const router = useRouter();
-//   //const searchParams = useSearchParams();
-//   const pathName = usePathname();
-
-//   const getClass = (name: string) =>
-//     `cursor-pointer w-full p-2 hover:bg-gray-200 hover:text-amber-900 hover:font-bold rounded-[8px] ${
-//       pathName.includes(name.toLowerCase())
-//         ? 'bg-black text-white hover:rounded-[8px]'
-//         : 'bg-white text-black'
-//     }`;
-
-//   return (
-//     <div className="flex flex-col w-56">
-//       <div className="flex-1 flex flex-col border-r gap-y-2 mt-1 justify-between">
-//         <div className="flex flex-col">
-//           {sidebarItems.map((item) => (
-//             <a
-//               href={item.url}
-//               key={item.title}
-//               className={getClass(item.title)}
-//             >
-//               {item.title}
-//             </a>
-//           ))}
-//         </div>
-//         <AccountTab />
-//       </div>
-//     </div>
-//   );
-// }
 
 export default function SidebarMenu() {
   const router = useRouter();

@@ -3,7 +3,8 @@ import { NoteModel } from '@/app/models/User';
 import { createResponse } from '@/app/utils';
 
 export async function POST(request: Request): Promise<Response> {
-  const { _id, _userId, title, content, active } = await request.json();
+  // const { _id, _userId, title, content, active } = await request.json();
+  const { _id } = await request.json();
   console.log(`id to delete: ${_id}`);
 
   //const note = await request.json();
@@ -20,7 +21,7 @@ export async function POST(request: Request): Promise<Response> {
       message: 'Note deleted',
       isSuccess: true,
     });
-  } catch (error) {
+  } catch {
     return createResponse({
       data: null,
       code: 500,

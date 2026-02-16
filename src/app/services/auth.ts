@@ -2,8 +2,7 @@ import bcrypt from 'bcryptjs';
 import httpClient from '../utils/http-client';
 import {
   LoginRequest,
-  RegisterAccountRequest,
-  TodoRequest,
+  RegisterAccountRequest,  
 } from '../utils/types';
 import { endpoints } from './endpoints';
 

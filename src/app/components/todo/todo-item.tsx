@@ -5,14 +5,14 @@ import { TodoInfo } from '../../utils/types';
 import { FormEvent, useEffect, useState } from 'react';
 import { SquarePen, Trash2 } from 'lucide-react';
 import { Label } from '@/components/ui/label';
-import { toast } from 'sonner';
+//import { toast } from 'sonner';
 import { Button } from '@/components/ui/button';
 import clsx from 'clsx';
 import httpClient from '../../utils/http-client';
 import { endpoints } from '../../services/endpoints';
-import { Card, CardContent, CardHeader } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { TodoFormField, TodoInterface } from '../Forms/TodoForm';
-import { Separator } from '@radix-ui/react-separator';
+//import { Separator } from '@radix-ui/react-separator';
 
 type TodoItemProp = {
   todoCallback: () => void;

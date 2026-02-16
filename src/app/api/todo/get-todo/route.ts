@@ -2,7 +2,7 @@ import dbConnect from '@/app/connection/mongo.connection';
 import { TodoModel } from '@/app/models/User';
 import { createResponse } from '@/app/utils';
 import { verifyJWT } from '@/app/utils/auth';
-import { Types } from 'mongoose';
+//import { Types } from 'mongoose';
 import { NextRequest } from 'next/server';
 
 interface DecodedUser {
@@ -27,11 +27,14 @@ export async function GET(request: NextRequest) {
   console.log('decoded: ', decoded);
 
   await dbConnect();
-  const userCheck = new Types.ObjectId(decoded?.userId.toString());
-  const _userId = decoded?.userId.toString();
+
+  //const userCheck = new Types.ObjectId(decoded?.userId.toString());
   //console.log(`userCheck: ${userCheck}, type: ${typeof userCheck}`);
+
+  const _userId = decoded?.userId.toString();
+
   console.log(
-    `decoded user: ${decoded?.userId}, type: ${typeof decoded?.userId}`
+    `decoded user: ${decoded?.userId}, type: ${typeof decoded?.userId}`,
   );
   const todos = await TodoModel.find({ _userId }); //.populate('_userId');
   console.log('get todos api: ', todos);

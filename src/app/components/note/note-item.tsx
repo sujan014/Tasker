@@ -14,7 +14,7 @@ import {
   DialogTrigger,
 } from '@/components/ui/dialog';
 import { Pencil, X } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { toast } from 'sonner';
 import { NoteFormField, NoteInterface } from '../Forms/NoteForm';
 import { Separator } from '@/components/ui/separator';
@@ -27,7 +27,7 @@ interface NoteItemProps {
 
 export default function NoteCard({
   noteItem,
-  onNoteChanged,
+  onNoteChanged: _onNoteChanged,
   onNoteDeleted,
 }: NoteItemProps) {
   const [dispNote, setDispNote] = useState<NoteInfo>({
@@ -106,7 +106,7 @@ export default function NoteCard({
         //onNoteChanged();
         onNoteDeleted(delete_note_id);
       }
-    } catch (error) {
+    } catch {
       toast.error('Could not delete note');
     }
   };

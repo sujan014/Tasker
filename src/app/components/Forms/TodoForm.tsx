@@ -4,11 +4,11 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import React, { useEffect, useState } from 'react';
-import { toast } from 'sonner';
+//import { toast } from 'sonner';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { endpoints } from '@/app/services/endpoints';
-import { useAppSelector } from '@/hooks';
+//import { useAppSelector } from '@/hooks';
 import httpClient from '@/app/utils/http-client';
 import { Separator } from '@/components/ui/separator';
 import { useAuthStore } from '@/zustand/auth/authStore';
@@ -28,7 +28,7 @@ interface TodoFormProps {
   name: string;
   value: string;
   onChange: (
-    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
   ) => void;
   required?: boolean;
   className?: string;
@@ -101,7 +101,7 @@ export default function TodoForm({ onCloseForm }: TodoFormType) {
   }, [user]);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
   ) => {
     e.preventDefault();
     const name = e.target.name;
@@ -112,8 +112,8 @@ export default function TodoForm({ onCloseForm }: TodoFormType) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const date = new Date().toLocaleDateString();
-    const time = new Date().toLocaleTimeString();
+    // const date = new Date().toLocaleDateString();
+    // const time = new Date().toLocaleTimeString();
 
     // const newTodoData = {
     //   userId: todo.userId,
@@ -133,7 +133,7 @@ export default function TodoForm({ onCloseForm }: TodoFormType) {
           description: todo.description,
           done: todo.done,
           unable: todo.unable,
-        })
+        }),
       );
       console.log('response: ', response);
       setTodo({ ...todo, item: '', description: '' });

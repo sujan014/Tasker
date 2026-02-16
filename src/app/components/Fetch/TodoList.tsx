@@ -44,9 +44,17 @@ export default function TodoList() {
       {todos &&
         uniqueCategories?.map(
           (uniqueCategory: string, categoryIndex: number) => {
-            let firstTodoItem = todos.find(
+            const firstTodoItem = todos?.find(
               (todo) => todo.todo === uniqueCategory,
-            );
+            ) ?? {
+              _id: '',
+              _userId: '',
+              todo: '',
+              item: '',
+              description: '',
+              done: false,
+              unable: false,
+            };
             return (
               <div
                 key={categoryIndex}

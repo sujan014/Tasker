@@ -3,9 +3,9 @@ import { endpoints } from '@/app/services/endpoints';
 import httpClient from '@/app/utils/http-client';
 import { UserInfo } from '@/app/utils/types';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+//import { Label } from '@/components/ui/label';
 import { useAuthStore } from '@/zustand/auth/authStore';
 import { UserPen, Check, CircleX } from 'lucide-react';
 import React, { FormEvent, useEffect, useState } from 'react';
@@ -38,14 +38,14 @@ export default function ProfileForm() {
   useEffect(() => {
     console.log('Profile User state:');
     console.table(user);
-  }, []);
+  }, [user]);
 
   const showEditUser = () => {
     setTempUser(holdUser);
     setEdit(true);
   };
   const onChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     e.preventDefault();
     const name = e.target.name;
@@ -188,42 +188,6 @@ export default function ProfileForm() {
           </CardContent>
         </form>
       )}
-    </Card>
-  );
-
-  return (
-    <Card className="w-full md:w-xl mx-auto">
-      <form onSubmit={handleSubmit}>
-        <CardHeader>
-          <CardTitle className="text-3xl font-bold text-blue-800 text-center">
-            Profile
-          </CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Label htmlFor="profileName" className="text-blue-800 text-xl">
-            Name
-          </Label>
-
-          <Input
-            id="profileName"
-            name="profileName"
-            type="text"
-            onChange={onChange}
-            value={name}
-            maxLength={30}
-            placeholder="Maximum 30 characters"
-          />
-
-          <div className="flex justify-between">
-            <Button onClick={handleUndo} className="w-1/3 hover:bg-red-500">
-              Undo Changed
-            </Button>
-            <Button type="submit" className="w-1/3 hover:bg-blue-600">
-              Save Changes
-            </Button>
-          </div>
-        </CardContent>
-      </form>
     </Card>
   );
 }

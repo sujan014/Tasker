@@ -1,6 +1,6 @@
 'use client';
 
-import { useAppSelector } from '@/hooks';
+//import { useAppSelector } from '@/hooks';
 import { motion } from 'framer-motion';
 import {
   BellRing,
@@ -11,7 +11,7 @@ import {
   LucideIcon,
 } from 'lucide-react';
 import { usePathname, useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+//import { useEffect } from 'react';
 
 export default function Dashboard() {
   //const { user } = useAppSelector((state) => state.auth);
@@ -94,25 +94,3 @@ function TaskCard({ name, color, icon: Icon, link, routeClick }: TaskProp) {
     </motion.div>
   );
 }
-
-// export default function Dashboard() {
-//   const { user, isAuthenticated, errorMessage, loginFailed, registerFailed } =
-//     useAppSelector((state) => state.auth);
-
-//   const handleLogout = async (e: React.MouseEvent<HTMLButtonElement>) => {
-//     e.preventDefault();
-//     const logoutResponse = await logoutUser();
-//     if (logoutResponse.isSuccess) {
-//       redirect('/');
-//     }
-//     toast.message('You are Logged out.');
-//   };
-//   return (
-//     <div>
-//       <h1 className="text-3xl">Dashboard</h1>
-//       <p>Welcome.</p>
-//       <TodoForm />
-//       <Button onClick={handleLogout}>Logout</Button>
-//     </div>
-//   );
-// }

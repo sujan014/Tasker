@@ -17,7 +17,7 @@ export async function POST(request: Request): Promise<Response> {
       message: 'Note edited',
       isSuccess: true,
     });
-  } catch (error) {
+  } catch {
     return createResponse({
       data: null,
       code: 500,

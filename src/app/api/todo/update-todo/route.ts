@@ -10,7 +10,7 @@ export async function POST(request: Request): Promise<Response> {
     const todoUpdate = await TodoModel.findByIdAndUpdate(
       _id, // ID to find
       todoProps, // Fields to update
-      { new: true } // Option to return updated document
+      { new: true }, // Option to return updated document
     );
     console.log(todoUpdate);
     if (!todoUpdate) {
@@ -27,7 +27,7 @@ export async function POST(request: Request): Promise<Response> {
       message: 'Update todo found',
       isSuccess: true,
     });
-  } catch (error) {
+  } catch {
     return createResponse({
       data: null,
       code: 500,

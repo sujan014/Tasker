@@ -2,19 +2,19 @@
 
 import { Button } from '@/components/ui/button';
 import { FormEvent, useEffect, useState } from 'react';
-import { Card, CardHeader, CardTitle } from '../ui/card';
-import { FaDoorOpen } from 'react-icons/fa';
+//import { Card, CardHeader, CardTitle } from '../ui/card';
+//import { FaDoorOpen } from 'react-icons/fa';
 import { BiLogIn } from 'react-icons/bi';
-import { CiLogin } from 'react-icons/ci';
+//import { CiLogin } from 'react-icons/ci';
 import { AiOutlineForward } from 'react-icons/ai';
-import { Toaster } from '../ui/sonner';
+//import { Toaster } from '../ui/sonner';
 import { toast } from 'sonner';
-import httpClient from '@/app/utils/http-client';
-import { createAccountWithEmail, loginWithEmail } from '@/app/services/auth';
-import { endpoints } from '@/app/services/endpoints';
-import { useAppDispatch, useAppSelector } from '@/hooks';
+//import httpClient from '@/app/utils/http-client';
+import { createAccountWithEmail } from '@/app/services/auth';
+//import { endpoints } from '@/app/services/endpoints';
+//import { useAppDispatch, useAppSelector } from '@/hooks';
 import { useRouter } from 'next/navigation';
-import { loginUser } from '@/redux/store/auth/authSlice';
+//import { loginUser } from '@/redux/store/auth/authSlice';
 import { useAuthStore } from '@/zustand/auth/authStore';
 import LoginLoader from '../LoginLoader';
 
@@ -79,7 +79,7 @@ export default function LoginForm() {
 
   const authState = useAuthStore((state) => state.authState);
   const loginAuthUser = useAuthStore((state) => state.loginAuthUser);
-  const registerAuthUser = useAuthStore((state) => state.registerAuthUser);
+  //const registerAuthUser = useAuthStore((state) => state.registerAuthUser);
   const [isLoggingIn, setIsLoggingIn] = useState(false);
 
   const router = useRouter();

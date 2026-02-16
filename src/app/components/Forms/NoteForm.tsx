@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { Textarea } from '@/components/ui/textarea';
-import { useAppSelector } from '@/hooks';
+//import { useAppSelector } from '@/hooks';
 import { useAuthStore } from '@/zustand/auth/authStore';
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
@@ -26,7 +26,7 @@ interface NoteFormProps {
   name: string;
   value: string;
   onChange: (
-    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+    e: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>,
   ) => void;
   required?: boolean;
   className?: string;
@@ -90,10 +90,10 @@ export default function NoteForm({ noteCallback, onCloseForm }: NoteFormType) {
     if (user?._id) {
       setNewNote((note) => ({ ...note, userId: user._id }));
     }
-  }, []);
+  }, [user?._id]);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     e.preventDefault();
     const name = e.target.name;
@@ -107,7 +107,7 @@ export default function NoteForm({ noteCallback, onCloseForm }: NoteFormType) {
     try {
       const response = await httpClient.post(
         endpoints.CREATE_NEW_NOTE,
-        newNote
+        newNote,
       );
       console.log(response);
       if (response.data.isSuccess) {

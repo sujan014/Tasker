@@ -3,8 +3,8 @@ import { TodoModel } from '@/app/models/User';
 import { createResponse } from '@/app/utils';
 
 export async function POST(request: Request): Promise<Response> {
-  const { _id, userId, todo, item, description, done, unable } =
-    await request.json();
+  // const { _id, userId, todo, item, description, done, unable } = await request.json();
+  const { _id, userId } = await request.json();
   //   console.log(`Delete Todo post: ${_id}, ${userId}, ${todo} ${item} ${description} ${done} ${unable}`);
   try {
     await dbConnect();
@@ -16,7 +16,7 @@ export async function POST(request: Request): Promise<Response> {
       message: 'Delete todo found',
       isSuccess: true,
     });
-  } catch (error) {
+  } catch {
     return createResponse({
       data: null,
       code: 500,

@@ -20,7 +20,7 @@ export async function POST(request: Request) {
       message: 'User updated',
       isSuccess: true,
     });
-  } catch (error) {
+  } catch {
     return createResponse({
       data: null,
       code: 400,

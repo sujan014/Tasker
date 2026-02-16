@@ -1,9 +1,10 @@
-type digitProp = {
-  value: number;
-};
-export default function Digit({ value }: digitProp) {
-  return <div></div>;
-}
+// type digitProp = {
+//   value: number;
+// };
+
+// export default function Digit({ value }: digitProp) {
+//   return <div></div>;
+// }
 
 export function Digit_One() {
   return (
@@ -11,14 +12,7 @@ export function Digit_One() {
       <Shifted_Vertical_line />
       <Shifted_Vertical_line moreClass="relative -top-[14px]" />
     </div>
-  );
-
-  return (
-    <div className="flex-col">
-      <Vertical_line />
-      <Vertical_line moreClass="relative -top-[14px]" />
-    </div>
-  );
+  );  
 }
 
 export function Digit_Two() {
@@ -146,13 +140,13 @@ export function TimeDot({
 type classProp = {
   moreClass?: string;
 };
-const Horizontal_line = ({ moreClass = '' }: classProp) => {
-  return (
-    <div className={`flex ${moreClass}`}>
-      <div className="w-[64px] h-[14px] bg-blue-700"></div>
-    </div>
-  );
-};
+// const Horizontal_line = ({ moreClass = '' }: classProp) => {
+//   return (
+//     <div className={`flex ${moreClass}`}>
+//       <div className="w-[64px] h-[14px] bg-blue-700"></div>
+//     </div>
+//   );
+// };
 
 export function Vertical_line({ moreClass = '' }: classProp) {
   return (

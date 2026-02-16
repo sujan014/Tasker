@@ -2,15 +2,8 @@ import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 import { PayloadSignJWT } from '../utils/types';
 import { verifyJWT } from '../utils/auth';
-import SidebarMenu from '../components/SideMenu';
-import SlideMenuBar from '../components/SlideMenu';
 import MenuToggle from '../components/MenuToggle';
 
-const sidebarItems = [
-  { title: 'Profile', url: '/profile' },
-  { title: 'Tasks', url: '/dashboard' },
-  { title: 'Settings', url: '#' },
-];
 export default async function PrivateLayout({
   children,
 }: {
@@ -32,12 +25,12 @@ export default async function PrivateLayout({
   return <MenuToggle>{children}</MenuToggle>;
 
   // original
-  return (
-    <div className="flex-1 flex ">
-      <SidebarMenu />
-      <main className="flex-1">
-        <main>{children}</main>
-      </main>
-    </div>
-  );
+  // return (
+  //   <div className="flex-1 flex ">
+  //     <SidebarMenu />
+  //     <main className="flex-1">
+  //       <main>{children}</main>
+  //     </main>
+  //   </div>
+  // );
 }

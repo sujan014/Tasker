@@ -2,7 +2,7 @@ import { createResponse } from '@/app/utils';
 import { cookies } from 'next/headers';
 import { NextRequest } from 'next/server';
 
-export async function POST(request: NextRequest) {
+export async function POST(_request: NextRequest) {
   try {
     (await cookies()).set('token', '', {
       httpOnly: true,
