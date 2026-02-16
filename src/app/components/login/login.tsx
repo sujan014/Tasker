@@ -54,9 +54,9 @@ const FormField = ({
   text,
 }: FormFieldProps) => {
   return (
-    <div className="m-5">
-      <div className="flex items-center">
-        <div className="min-w-32 mr-2">{text}</div>
+    <div className="m-5 w-[70vw] md:w-[30vw] md:min-w-[400px]">
+      <div className="flex flex-wrap md:flex-nowrap items-center">
+        <div className="w-32 mr-2">{text}</div>
         <input
           type={type}
           name={name}
@@ -211,7 +211,7 @@ export default function LoginForm() {
 
   return (
     <div className="h-screen w-screen flex justify-center">
-      <div className="my-[20vh] p-5 h-fit sm:w-1/3 mx-auto border border-gray-300 shadow-gray-600 shadow-2xl rounded-lg flex-col justify-center">
+      <div className="my-[20vh] p-5 h-fit mx-auto border border-gray-300 shadow-gray-600 shadow-2xl rounded-lg flex-col justify-center">
         {isLoginMode ? (
           <h1 className="border p-5 bg-blue-900 text-white text-center text-2xl rounded-lg">
             Login to Start your day

@@ -12,6 +12,7 @@ import { endpoints } from '@/app/services/endpoints';
 import httpClient from '@/app/utils/http-client';
 import { Separator } from '@/components/ui/separator';
 import { useAuthStore } from '@/zustand/auth/authStore';
+import { TodoInfo } from '@/app/utils/types';
 
 export interface TodoInterface {
   userId: string | undefined;
@@ -78,9 +79,10 @@ const TodoFormField = ({
 export { TodoFormField };
 
 type TodoFormType = {
+  onAddTodo: () => void;
   onCloseForm: () => void;
 };
-export default function TodoForm({ onCloseForm }: TodoFormType) {
+export default function TodoForm({ onAddTodo, onCloseForm }: TodoFormType) {
   //const { user } = useAppSelector((state) => state.auth);
   const user = useAuthStore((state) => state.authState.user);
   console.log('Todo Form displaying user');
@@ -136,6 +138,7 @@ export default function TodoForm({ onCloseForm }: TodoFormType) {
         }),
       );
       console.log('response: ', response);
+      onAddTodo();
       setTodo({ ...todo, item: '', description: '' });
     } catch (error) {
       console.log(error);

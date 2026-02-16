@@ -29,10 +29,12 @@ import { DialogClose } from '@radix-ui/react-dialog';
 interface todoHeadProps {
   todoItem: TodoInfo;
   handleGroupNewTodo: (todo: TodoInfo) => void;
+  handleGroupDelete: (remove_todo: string | undefined) => void;
 }
 const TodoHeader: React.FC<todoHeadProps> = ({
   todoItem,
   handleGroupNewTodo,
+  handleGroupDelete,
 }) => {
   const [newTodo, setNewTodo] = useState<boolean>(false);
   const [editGroup, setEditGroup] = useState<boolean>(false);
@@ -115,6 +117,9 @@ const TodoHeader: React.FC<todoHeadProps> = ({
     });
     console.log(response);
     setOpenDialog(false);
+    if (todoItem.todo) {
+      handleGroupDelete(todoItem.todo);
+    }
   };
   const handleEditGroup = () => {
     setGroupName(defaultTodo.todo);

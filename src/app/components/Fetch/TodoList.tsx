@@ -7,7 +7,10 @@ import { useEffect, useState } from 'react';
 import TodoItem from '../todo/todo-item';
 import TodoHeader from '../todo/todoHeader';
 
-export default function TodoList() {
+type TodoListProp = {
+  refreshKey: boolean;  
+}
+export default function TodoList({ refreshKey }: TodoListProp) {
   const [todos, setTodos] = useState<TodoInfo[]>([]);
   const [uniqueCategories, setUniqueCategories] = useState<any>([]);
   const [reload, setReload] = useState<boolean>(false);
@@ -29,7 +32,7 @@ export default function TodoList() {
       }
     };
     getTodo();
-  }, [reload]);
+  }, [reload, refreshKey]);
 
   const handleReloadTodos = () => {
     setReload((prev) => !prev);
@@ -37,6 +40,19 @@ export default function TodoList() {
 
   const handleNewGroupTodo = (newGroupTodo: TodoInfo) => {
     setTodos((prev) => [...prev, newGroupTodo]);
+  };
+
+  const handleDeleteGroupTodo = (remove_todo: string | undefined) => {
+    if (remove_todo) {
+      const tempTodos = todos.filter((todo) => todo.todo !== remove_todo);
+      setTodos((prevTodos) =>
+        prevTodos.filter((todo) => todo.todo !== remove_todo),
+      );
+      const uniqueArray = [
+        ...new Set(tempTodos?.map((item: TodoInfo) => item.todo)),
+      ];
+      setUniqueCategories(uniqueArray);
+    }
   };
 
   return (
@@ -63,6 +79,7 @@ export default function TodoList() {
                 <TodoHeader
                   todoItem={firstTodoItem}
                   handleGroupNewTodo={handleNewGroupTodo}
+                  handleGroupDelete={handleDeleteGroupTodo}
                 />
                 {/* <TodoHeader uniqueCategory={uniqueCategory} /> */}
                 <hr className="h-[2px] my-1 bg-gray-400" />

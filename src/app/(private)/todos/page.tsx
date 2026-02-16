@@ -7,6 +7,7 @@ import TodoForm from '@/app/components/Forms/TodoForm';
 
 export default function Todos() {
   const [newForm, setNewForm] = useState(false);
+  const [refreshKey, setRefreshKey] = useState(false);
 
   const handleNewTodo = () => {
     setNewForm(true);
@@ -14,6 +15,10 @@ export default function Todos() {
 
   const handleCloseTodo = () => {
     setNewForm(false);
+  };
+
+  const handleTodoRefresh = () => {
+    setRefreshKey((prev) => !prev);
   };
 
   return (
@@ -29,9 +34,14 @@ export default function Todos() {
       </div>
 
       <AnimatePresence initial={false}>
-        {newForm ? <TodoForm onCloseForm={handleCloseTodo} /> : null}
+        {newForm ? (
+          <TodoForm
+            onCloseForm={handleCloseTodo}
+            onAddTodo={handleTodoRefresh}
+          />
+        ) : null}
       </AnimatePresence>
-      <TodoList />
+      <TodoList refreshKey={refreshKey} />
     </div>
   );
 }
