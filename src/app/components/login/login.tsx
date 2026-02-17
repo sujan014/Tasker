@@ -120,6 +120,7 @@ export default function LoginForm() {
     authState.isAuthenticated,
     authState.errorMessage,
     authState.loginFailed,
+    authState.registerFailed,
   ]);
 
   const toggleLoginMode = (e: React.MouseEvent<HTMLAnchorElement>) => {
