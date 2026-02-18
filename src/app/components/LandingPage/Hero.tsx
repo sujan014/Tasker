@@ -2,8 +2,11 @@
 import { Checkbox } from '@/components/ui/checkbox';
 import { motion } from 'framer-motion';
 import { CircleCheck } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 
 const Hero = () => {
+  const router = useRouter();
+
   const headline = '10X your productivity'.split('');
   const tasks = [
     'groceries',
@@ -31,9 +34,14 @@ const Hero = () => {
     'Set deadlines to enhance urgency',
     'Get reminders',
   ];
+
+  const handleRegistration = () => {
+    router.push('/login');
+  };
+
   return (
     <div>
-      <h1 className="mt-10 text-7xl font-bold text-blue-900 text-center">
+      <h1 className="mt-10 text-3xl sm:text-5xl md:text-7xl font-bold text-blue-900 text-center">
         {headline.map((letter, index) => (
           <motion.span
             initial={{ opacity: 0, y: 12 }}
@@ -46,8 +54,8 @@ const Hero = () => {
           </motion.span>
         ))}
       </h1>
-      <div className="flex gap-5 mt-10">
-        <div className="basis-1/2 py-5 rounded-md bg-gray-300 flex justify-evenly">
+      <div className="flex gap-5 mt-10 flex-wrap md:flex-nowrap">
+        <div className="mx-auto basis-1/2 py-5 rounded-md bg-gray-300 flex justify-evenly">
           <div className="w-50 bg-white border-black border rounded-md">
             <h1 className="font-bold text-center">Tasks</h1>
             <ul>
@@ -87,12 +95,13 @@ const Hero = () => {
             </ul>
           </div>
         </div>
-        <div className="basis-1/2 flex flex-col">
+        <div className="basis-1/2 flex flex-col mx-auto">
           <motion.button
             className="max-w-md mx-auto mb-5 px-6 py-2 bg-[#3333ff] text-white rounded-lg shadow-2xl"
             whileHover={{ scale: 1.1, backgroundColor: '#0011ff' }} // hover = grow & color change // green #4ade80
             whileTap={{ scale: 0.9, rotate: -5 }} // click = shrink & rotate
             transition={{ type: 'spring', stiffness: 300 }} // springy bounce
+            onClick={handleRegistration}
           >
             Register to get started
           </motion.button>
